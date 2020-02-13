@@ -9,3 +9,9 @@ Based on the requirements here: https://code-maven.com/shopping-list
 ```
 FLASK_APP=app FLASK_DEBUG=1 flask run
 ```
+
+## Testing:
+
+```
+pytest
+```
