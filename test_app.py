@@ -18,23 +18,24 @@ def test_app(tmpdir):
         "product": "Apple juice"
     })
     assert rv.status_code == 200
-    assert "Shopping List" in rv.data.decode('utf-8')
-    assert "<h2>Products</h2>" in rv.data.decode('utf-8')
-    assert "<li>Apple juice</li>" in rv.data.decode('utf-8')
+    assert 'Shopping List' in rv.data.decode('utf-8')
+    assert '<h2>Products</h2>' in rv.data.decode('utf-8')
+    assert '<li>Apple juice <a href="/remove/1">remove</a></li>' in rv.data.decode('utf-8')
 
     rv = web.post('/', data={
         "product": "Loaf of Bread"
     })
     assert rv.status_code == 200
     #print(rv.data)
-    assert "Shopping List" in rv.data.decode('utf-8')
-    assert "<h2>Products</h2>" in rv.data.decode('utf-8')
-    assert "<li>Apple juice</li>" in rv.data.decode('utf-8')
-    assert "<li>Loaf of Bread</li>" in rv.data.decode('utf-8')
+    assert 'Shopping List' in rv.data.decode('utf-8')
+    assert '<h2>Products</h2>' in rv.data.decode('utf-8')
+    assert '<li>Apple juice <a href="/remove/1">remove</a></li>' in rv.data.decode('utf-8')
+    assert '<li>Loaf of Bread <a href="/remove/2">remove</a></li>' in rv.data.decode('utf-8')
 
     rv = web.get('/')
     assert rv.status_code == 200
     assert "Shopping List" in rv.data.decode('utf-8')
     assert "<h2>Products</h2>" in rv.data.decode('utf-8')
-    assert "<li>Apple juice</li>" in rv.data.decode('utf-8')
-    assert "<li>Loaf of Bread</li>" in rv.data.decode('utf-8')
+    assert '<li>Apple juice <a href="/remove/1">remove</a></li>' in rv.data.decode('utf-8')
+    assert '<li>Loaf of Bread <a href="/remove/2">remove</a></li>' in rv.data.decode('utf-8')
+

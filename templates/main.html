@@ -17,7 +17,7 @@
 <h2>Products</h2>
 <ul>
   {% for prod in products %}
-    <li>{{ prod }}</li>
+  <li>{{ prod.name }} <a href="/remove/{{ prod.id }}">remove</a></li>
   {% endfor %}
 </ul>
 {% endif %}

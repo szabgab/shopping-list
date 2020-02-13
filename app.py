@@ -18,13 +18,18 @@ def main_post():
             data = json.load(fh)
     else:
         data = {
+            'counter': 0,
             'products': []
         }
 
     if request.method == "POST":
         if 'product' in request.form:
             product = request.form['product']
-            data['products'].append(product)
+            data['counter'] += 1
+            data['products'].append({
+                'id': data['counter'],
+                'name': product,
+            })
         with open(db_file, 'w') as fh:
             json.dump(data, fh, sort_keys=True, indent=4, separators=(',', ': '), ensure_ascii=False)
 
