@@ -2,6 +2,7 @@
 
 Based on the requirements here: https://code-maven.com/shopping-list
 
+[![Status](https://travis-ci.org/szabgab/shopping-list.png)](https://travis-ci.org/szabgab/shopping-list)
 
 ## Development:
 
