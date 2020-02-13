@@ -8,6 +8,19 @@
 <title>{{ title }}</title>
 <body>
 <h1>{{ title }}</h1>
+<form action="/" method="POST">
+  <input name="product">
+  <input type="submit" value="Add">
+</form>
+
+{% if products %}
+<h2>Products</h2>
+<ul>
+  {% for prod in products %}
+    <li>{{ prod }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
 
 </body>
 </html>
